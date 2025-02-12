@@ -1,77 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Italiana&display=swap');
-html,
-body {
+
+/* Global Styles */
+html, body {
     margin: 0;
-    scroll-behavior: smooth !important;
+    scroll-behavior: smooth; 
+    font-family: "Istok Web", sans-serif;
+    height: 100%; 
+    text-align: center;
+    display: block; 
+}
+
+/* Reset Box Sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Section Styles */
+section {
+    height: 100vh; 
+    width: 100%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Section 1: Home */
+#home {
+    background-color: #f8d7da; /* Light pink background */
+}
+
+#home h1, #home h2 {
+    color: #fb6f92;
+    font-size: 2.5rem;
+    font-family: "Istok Web", sans-serif;
+    text-decoration: underline;
+}
+#home h2{
+    font-size: 2rem;
+    text-decoration: none;
     font-family: "Istok Web", sans-serif;
 }
-body, html {
-    height: 100%;
-    text-align: center;
-    margin: 0;
+
+#home p {
+    color: #fb6f92;
+    font-size: 1.5rem;
+    font-family: "Istok Web", sans-serif;
+}
+
+/* Section 2: Document */
+#Doc {
+    background-color: #f8d7da;
+    height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    box-sizing: border-box;
 }
 
+#Doc h1 {
+    font-family: "Italiana", serif;
+    margin: 25px;
+    font-size: 3rem;
+    color: #fb6f92;
+}
+.pdf-frame {
+    width: 90vh; 
+    max-width: 1200px; 
+    height: 80vh; 
+    border: none; 
+    margin-top: 20px;
+}
+
+
+/* Navigation Styling */
 nav {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+    position: fixed; /* Keep the navigation at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background-color: #f8d7da; /* Match the background or use a contrasting color */
+    padding: 10px 20px;
+    display: flex; /* Use Flexbox */
+    justify-content: space-between; /* Push items to opposite ends */
+    align-items: center; /* Vertically align items */
+    z-index: 1000; /* Ensure it stays above content */
 }
 
-nav ul {
-    list-style-type: none;
+.nav_con {
+    list-style: none; /* Remove default list styling */
+    display: flex; /* Use Flexbox for navigation items */
+    gap: 20px; /* Add spacing between items */
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
-    display: incline;
+.nav_left {
+    display: flex;
+    gap: 20px; /* Add spacing between items */
 }
 
-nav ul li a {
+.nav_right {
+    display: flex;
+    gap: 20px; /* Add spacing between items */
+}
+
+.nav_con li a {
     text-decoration: none;
-    color: #fb6f92;
-    font-size: 1.2rem;
+    color: #fb6f92; /* Text color */
+    font-size: 1.5rem;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: white;
+.nav_con li a:hover {
+    color: white; /* Highlight on hover */
     transform: scale(1.1);
 }
-
-section#home {
-    margin-top: 20px;
-}
-
-h1 {
-    font-size: 2.5rem;
-    color: #fb6f92;
-}
-
-h2 {
-    font-size: 2rem;
-    color: #fb6f92;
-}
-
-p {
-    list-style-type: none;
-    margin-top: 20px;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    font-size: 1.5 rem;
-    margin: 10px 0;
-    color: #fb6f92;
-}
-
-:root{
-    --pico-background-color: pink !important;
- }
-
 
