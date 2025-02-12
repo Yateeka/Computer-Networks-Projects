@@ -33,14 +33,14 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: royalblue;
+    color: #fb6f92;
     font-size: 1.2rem;
     font-weight: bold;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 nav ul li a:hover {
-    color: rgb(64, 103, 220);
+    color: white;
     transform: scale(1.1);
 }
 
@@ -50,22 +50,28 @@ section#home {
 
 h1 {
     font-size: 2.5rem;
-    color: white;
+    color: #fb6f92;
 }
 
 h2 {
     font-size: 2rem;
-    color: white;
+    color: #fb6f92;
 }
 
-ul {
+p {
     list-style-type: none;
     margin-top: 20px;
     padding: 0;
-}
-
-ul li {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     font-size: 1.5 rem;
     margin: 10px 0;
-    color: white;
+    color: #fb6f92;
 }
+
+:root{
+    --pico-background-color: pink !important;
+ }
+
+
