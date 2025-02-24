@@ -1,0 +1,28 @@
+# https://caddyserver.com/docs/caddyfile
+
+:8080 {
+	# https://stackoverflow.com/a/71815382
+	encode zstd gzip
+
+	log {
+		level info
+		format console
+	}
+
+	handle /* {
+		reverse_proxy host.docker.internal:8000
+	}
+
+	handle_errors {
+		root * /web
+
+		@5xx `{err.status_code} >= 500 && {err.status_code} <600`
+		handle @5xx {
+			respond "Execute 'npm run dev' to start the express server."
+		}
+
+		handle {
+			respond "another error"
+		}
+	}
+}

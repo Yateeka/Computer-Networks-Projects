@@ -1,0 +1,7 @@
+# https://caddyserver.com/docs/caddyfile
+
+{$WEB_HOSTNAME} {
+	handle * {
+		reverse_proxy api:8000
+	}
+}

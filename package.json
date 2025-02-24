@@ -1,0 +1,38 @@
+{
+  "name": "computer-networks-projects",
+  "version": "1.0.0",
+  "description": "This repository is for Computer Networks class.",
+  "type": "module",
+  "main": "dist/app.js",
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "start": "tsc && node .",
+    "format:check": "prettier . --check",
+    "format:write": "prettier . --write",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yateeka/Computer-Networks-Projects.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yateeka/Computer-Networks-Projects/issues"
+  },
+  "homepage": "https://github.com/Yateeka/Computer-Networks-Projects#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongodb": "^6.13.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@types/express": "^5.0.0",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0",
+    "prettier": "^3.5.2",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.1"
+  }
+}
