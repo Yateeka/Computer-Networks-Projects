@@ -10,10 +10,16 @@ Copy `.env` file:
 cp .env.example .env
 ```
 
+Create volumes(only on inital setup):
+```bash
+docker volume create computer_networks_project_db_data
+docker volume create caddy_data
+docker volume create caddy_config
+```
+
 Start containers:
 
 ```bash
-docker volume create computer_networks_project_db_data
 docker compose create
 docker compose start
 ```
@@ -21,6 +27,7 @@ docker compose start
 Start the express server:
 
 ```bash
+npm ci
 npm run dev
 ```
 

@@ -4,11 +4,8 @@ import notes from "@/notes";
 const app = express();
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send(`Hello World! Your ip is: ${req.ip}`);
-});
-
 app.use("/notes", notes);
+app.use("/", express.static("public"));
 
 const port = 8000;
 app.listen(port, () => {
