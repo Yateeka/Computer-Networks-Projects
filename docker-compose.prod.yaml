@@ -25,6 +25,8 @@ services:
   db:
     image: mongo:8.0.5-rc2
     restart: always
+    ports:
+      - 27017:27017
     volumes:
       - computer_networks_project_db_data:/data/db
     env_file:
