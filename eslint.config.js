@@ -5,5 +5,5 @@ import globals from "globals";
 export default [
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
-  { languageOptions: { globals: { ...globals.node } } },
+  { languageOptions: { globals: { ...globals.node, ...globals.browser } } },
 ];
