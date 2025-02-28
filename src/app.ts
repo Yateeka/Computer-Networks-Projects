@@ -1,6 +1,6 @@
 import express from "express";
-import notes from "@/notes";
-import sign from "@/sign";
+import notes from "./notes.js";
+import sign from "./sign.js";
 
 const app = express();
 app.use(express.json());

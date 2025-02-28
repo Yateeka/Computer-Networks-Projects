@@ -1,6 +1,6 @@
 import express, { Request } from "express";
-import db from "@/db";
-import { Token, type User } from "@/sign";
+import db from "./db.js";
+import { Token, type User } from "./sign.js";
 import { BSON } from "mongodb";
 
 export type Note = {

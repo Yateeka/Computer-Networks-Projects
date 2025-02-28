@@ -1,6 +1,6 @@
 import express from "express";
 import bcrypt from "bcrypt";
-import db from "@/db";
+import db from "./db.js";
 import { type ObjectId } from "mongodb";
 
 export type User = {
