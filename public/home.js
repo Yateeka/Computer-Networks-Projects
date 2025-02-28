@@ -104,7 +104,7 @@ async function loadNotes() {
   });
 }
 
-if (localStorage.getItem("token") !== undefined) {
+if (localStorage.getItem("token")) {
   document.querySelector("#login-btn").textContent = "Sign Out";
   document.querySelector("#section_note").style.display = "block";
 

@@ -20,9 +20,16 @@ async function getToken(req: Request) {
     return;
   }
 
+  let tokenIDBSON: BSON.ObjectId;
+  try {
+    tokenIDBSON = new BSON.ObjectId(tokenID);
+  } catch {
+    return;
+  }
+
   const token = await db
     .collection("tokens")
-    .findOne<Token>({ _id: new BSON.ObjectId(tokenID) });
+    .findOne<Token>({ _id: tokenIDBSON });
   if (!token) {
     return;
   }
