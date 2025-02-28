@@ -1,6 +1,6 @@
 # https://docs.docker.com/compose/compose-file/
 
-name: ComputerNetwork
+name: cnp
 
 services:
   web:
