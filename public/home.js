@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Function to open the login modal
   function openLogin() {
+    if (localStorage.getItem("token")) {
+      localStorage.removeItem("token");
+      localStorage.removeItem("username");
+      location.href = "/";
+      return;
+    }
+
     document.getElementById("loginModal").style.display = "flex";
   }
 
@@ -55,8 +62,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function onSubmitLogin(e) {
   e.preventDefault();
-  localStorage.removeItem("token");
-  localStorage.removeItem("username");
 
   const formData = new FormData(e.target);
   const res = await window.fetch("/sign/in", {
@@ -96,7 +101,10 @@ async function loadNotes() {
   const tmpl = document.querySelector("#template_note");
   data.forEach((note) => {
     const clone = tmpl.content.cloneNode(true);
-    clone.querySelector(".note_content").textContent = note.content;
+    // eslint-disable-next-line no-undef
+    clone.querySelector(".note_content").textContent = DOMPurify.sanitize(
+      note.content,
+    );
     clone.querySelector(".note_created_at").textContent = new Date(
       note.createdAt,
     ).toLocaleString();
@@ -105,11 +113,13 @@ async function loadNotes() {
 }
 
 if (localStorage.getItem("token")) {
-  document.querySelector("#login-btn").textContent = "Sign Out";
+  document.querySelector("#login-btn").textContent = "Log Out";
   document.querySelector("#section_note").style.display = "block";
 
   document.querySelectorAll(".username").forEach((element) => {
-    element.textContent = localStorage.getItem("username");
+    // eslint-disable-next-line no-undef
+    const username = DOMPurify.sanitize(localStorage.getItem("username"));
+    element.textContent = username;
   });
   loadNotes();
 }

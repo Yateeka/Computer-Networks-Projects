@@ -15,7 +15,6 @@ Create volumes(only on inital setup):
 ```bash
 docker volume create computer_networks_project_db_data
 docker volume create caddy_data
-docker volume create caddy_config
 ```
 
 Start containers:
@@ -25,16 +24,6 @@ docker compose create
 docker compose start
 ```
 
-Start the express server:
+Access [localhost:8080](http://localhost:8080) to see the live website.
 
-```bash
-npm ci
-npm run dev
-```
-
-Test whether the server handles POST and GET:
-
-```bash
-curl --header "Content-Type: application/json" -d '{"content": "LEMONMELONCOOKIE"}' http://localhost:8080/notes
-curl http://localhost:8080/notes
-```
+> Changes on `public` does not show immediately.
