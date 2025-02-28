@@ -12,7 +12,7 @@ export type Note = {
 const router = express.Router();
 
 async function getToken(req: Request) {
-  const tokenID = req.headers["Lemon-Melon"];
+  const tokenID = req.headers["lemon-melon"];
   if (!tokenID) {
     return;
   }

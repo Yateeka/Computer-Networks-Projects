@@ -53,8 +53,11 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(".back-btn").addEventListener("click", goBack);
 });
 
-async function onSubmit(e) {
+async function onSubmitLogin(e) {
   e.preventDefault();
+  localStorage.removeItem("token");
+  localStorage.removeItem("username");
+
   const formData = new FormData(e.target);
   const res = await window.fetch("/sign/in", {
     method: "POST",
@@ -67,8 +70,66 @@ async function onSubmit(e) {
     const data = await res.json();
     alert(`Welcome! ${data.username}`);
     localStorage.setItem("token", data._id);
+    localStorage.setItem("username", data.username);
+    window.location.href = "/";
   } else {
     alert("Check your username and password.");
   }
 }
-document.querySelector("#login_form").addEventListener("submit", onSubmit);
+document.querySelector("#login_form").addEventListener("submit", onSubmitLogin);
+
+async function loadNotes() {
+  const res = await window.fetch("/notes", {
+    headers: {
+      "Lemon-Melon": localStorage.getItem("token"),
+    },
+  });
+
+  if (res.status !== 200) {
+    alert("Cannot load notes");
+    return;
+  }
+
+  const data = await res.json();
+
+  const notesElement = document.querySelector("#notes");
+  const tmpl = document.querySelector("#template_note");
+  data.forEach((note) => {
+    const clone = tmpl.content.cloneNode(true);
+    clone.querySelector(".note_content").textContent = note.content;
+    clone.querySelector(".note_created_at").textContent = new Date(
+      note.createdAt,
+    ).toLocaleString();
+    notesElement.appendChild(clone);
+  });
+}
+
+if (localStorage.getItem("token") !== undefined) {
+  document.querySelector("#login-btn").textContent = "Sign Out";
+  document.querySelector("#section_note").style.display = "block";
+
+  document.querySelectorAll(".username").forEach((element) => {
+    element.textContent = localStorage.getItem("username");
+  });
+  loadNotes();
+}
+
+async function onSubmitNote(e) {
+  e.preventDefault();
+
+  const formData = new FormData(e.target);
+  const res = await window.fetch("/notes", {
+    method: "POST",
+    body: JSON.stringify(Object.fromEntries(formData)),
+    headers: {
+      "Content-Type": "application/json",
+      "Lemon-Melon": localStorage.getItem("token"),
+    },
+  });
+  if (res.status === 200) {
+    window.location.href = "/";
+  } else {
+    alert("Failed to create a note.");
+  }
+}
+document.querySelector("#note_form").addEventListener("submit", onSubmitNote);

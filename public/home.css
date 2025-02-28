@@ -199,6 +199,49 @@ section {
   font-family: "Istok Web", sans-serif;
 }
 
+#section_note {
+  display: none;
+}
+
+#section_note input {
+  max-width: 300px;
+  padding: 0.875rem;
+  font-size: 1rem;
+  border: 1.5px solid #000;
+  border-radius: 0.5rem;
+  box-shadow: 2.5px 3px 0 #000;
+  outline: none;
+  transition: ease 0.25s;
+}
+
+#section_note input:focus {
+  box-shadow: 5.5px 7px 0 black;
+}
+
+#section_note button {
+  --font-color: #323232;
+  --bg-color: #fff;
+  --main-color: #323232;
+  padding: 0.25em 0.5em;
+  border-radius: 5px;
+  border: 2px solid var(--main-color);
+  background-color: var(--bg-color);
+  box-shadow: 4px 4px var(--main-color);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+#section_note button:active {
+  box-shadow: 0px 0px var(--main-color);
+  transform: translate(3px, 3px);
+}
+
+.note {
+  margin: 1em;
+}
+
 #Doc {
   background-color: #f8d7da;
   height: 100vh;
