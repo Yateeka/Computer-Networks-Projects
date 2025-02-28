@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document
     .querySelector(".document-item")
     .addEventListener("click", function () {
-      viewDocument("Computer Networking Project Report.pdf");
+      viewDocument("report.pdf");
     });
   document.querySelector(".back-btn").addEventListener("click", goBack);
 });
