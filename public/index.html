@@ -32,7 +32,7 @@
       </ul>
       <ul class="nav_con nav_right">
         <li><a href="#Doc">Document</a></li>
-        <li><button class="login-btn" onclick="openLogin()">Login</button></li>
+        <li><button class="login-btn">Login</button></li>
       </ul>
     </nav>
 
@@ -54,7 +54,6 @@
         <div class="document-list">
           <div
             class="document-item"
-            onclick="viewDocument('report.pdf')"
           >
             Project-1
           </div>
@@ -66,7 +65,7 @@
           class="pdf-viewer-container"
           style="display: none"
         >
-          <button class="back-btn" onclick="goBack()">⬅ Back to List</button>
+          <button class="back-btn">⬅ Back to List</button>
           <iframe id="pdfViewer" class="pdf-frame"></iframe>
         </div>
       </div>
@@ -75,21 +74,18 @@
     <!-- LOGIN MODAL -->
     <div id="loginModal" class="modal">
       <div class="modal-content">
-        <span class="close-btn" onclick="closeLogin()">&times;</span>
-        <form action="">
+        <span class="close-btn">&times;</span>
+        <form id="login_form">
           <h1>Login</h1>
           <div class="input-box">
-            <input type="text" placeholder="Username" required />
+            <input type="text" name="username" placeholder="Username" required />
             <i class="bx bx-user-circle"></i>
           </div>
           <div class="input-box">
-            <input type="password" placeholder="Password" required />
+            <input type="password" name="password" placeholder="Password" required />
             <i class="bx bx-lock-alt"></i>
           </div>
           <button type="submit" class="btn">Login</button>
-          <div class="register-link">
-            <p>Don't have an account? <a href="#">Register</a></p>
-          </div>
         </form>
       </div>
     </div>

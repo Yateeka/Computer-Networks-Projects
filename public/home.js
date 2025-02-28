@@ -52,3 +52,23 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   document.querySelector(".back-btn").addEventListener("click", goBack);
 });
+
+async function onSubmit(e) {
+  e.preventDefault();
+  const formData = new FormData(e.target);
+  const res = await window.fetch("/sign/in", {
+    method: "POST",
+    body: JSON.stringify(Object.fromEntries(formData)),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (res.status === 200) {
+    const data = await res.json();
+    alert(`Welcome! ${data.username}`);
+    localStorage.setItem("token", data._id);
+  } else {
+    alert("Check your username and password.");
+  }
+}
+document.querySelector("#login_form").addEventListener("submit", onSubmit);
