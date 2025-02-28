@@ -11,6 +11,7 @@ cp .env.example .env
 ```
 
 Create volumes(only on inital setup):
+
 ```bash
 docker volume create computer_networks_project_db_data
 docker volume create caddy_data
